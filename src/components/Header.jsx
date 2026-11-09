@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import Tone from '../ambient/Tone.jsx';
 import InteractiveWordmark from './InteractiveWordmark.jsx';
@@ -7,6 +7,8 @@ import InteractiveWordmark from './InteractiveWordmark.jsx';
 export default function Header({ variant = 'landing' }) {
   const [reveal, setReveal] = useState(false);
   const [open, setOpen] = useState(false);
+  const openRef = useRef(open);
+  openRef.current = open;
   const { pathname, hash } = useLocation();
   const landing = variant === 'landing';
   const close = () => setOpen(false);
@@ -24,8 +26,62 @@ export default function Header({ variant = 'landing' }) {
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
   }, [open]);
+
+  /* Auto-hid
+  e: some ao rolar para baixo e volta ao rolar para cima.
+     Sempre visível no topo, com o menu aberto ou com foco dentro do header. */
+  useEffect(() => {
+    const el = document.getElementById('site-header');
+    if (!el) return undefined;
+    const TOP = 80; // zona do topo em que o header é sempre visível
+    const DELTA = 8; // histerese: ignora micro-movimentos (sem tremor)
+    let lastY = window.scrollY;
+    let anchor = lastY; // onde a direção atual começou
+    let hidden = false;
+    let raf = 0;
+    const set = (v) => {
+      if (v === hidden) return;
+      hidden = v;
+      el.dataset.hidden = v ? 'true' : 'false';
+    };
+    const update = () => {
+      raf = 0;
+      const y = Math.max(0, window.scrollY);
+      const dir = Math.sign(y - lastY);
+      if (dir === 0) return;
+      if (Math.sign(lastY - anchor) !== dir) anchor = lastY;
+      lastY = y;
+      const focused = document.activeElement !== document.body && el.contains(document.activeElement);
+      if (y <= TOP || openRef.current || focused) {
+        set(false);
+        anchor = y;
+        return;
+      }
+      if (Math.abs(y - anchor) < DELTA) return;
+      set(dir > 0);
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    const onFocusIn = () => set(false);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    el.addEventListener('focusin', onFocusIn);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener('scroll', onScroll);
+      el.removeEventListener('focusin', onFocusIn);
+    };
+  }, []);
+
   return (
-    <Tone as="header" className="header" data-variant={variant} data-menu={open ? 'open' : 'closed'}>
+    <Tone
+      as="header"
+      id="site-header"
+      className="header"
+      data-variant={variant}
+      data-menu={open ? 'open' : 'closed'}
+      data-hidden="false"
+    >
       <Link
         to="/"
         className="header__brand"

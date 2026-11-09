@@ -9,6 +9,17 @@
   align-items: center;
   justify-content: space-between;
   background: transparent;
+  transition: transform var(--dur-slow) var(--ease-out);
+  will-change: transform;
+}
+/* Auto-hide: oculto ao rolar para baixo; volta ao rolar para cima ou com foco por teclado. */
+.header[data-hidden='true']:not(:focus-within):not([data-menu='open']) {
+  transform: translateY(-100%);
+}
+@media (--reduce) {
+  .header {
+    transition: none;
+  }
 }
 .header__brand {
   display: inline-block;
