@@ -6,7 +6,7 @@
 export const contact = {
   whatsappNumber: '+5547984653443', 
   whatsappMessage: 'Olá! Quero contar sobre o meu projeto.', 
-  email: 'reginacupa@gmail.com',
+  email: 'hello@signature.tec.br',
   domain: 'signature.tec.br',
 };
 
