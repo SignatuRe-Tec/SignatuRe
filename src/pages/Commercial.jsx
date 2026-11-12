@@ -32,17 +32,24 @@ export default function Commercial() {
             Projetos
           </Tone>
           <ul className="offers">
-            {offers.map((o) => (
+            {offers.map((o, i) => (
               <li key={o.name} className="offer">
+                <span className="offer__n" aria-hidden="true">
+                  {String(i + 1).padStart(2, '0')}
+                </span>
+                {o.pre && <span className="offer__pre">{o.pre}</span>}
+                <Tone as="p" className="offer__meta">
+                  {o.meta}
+                </Tone>
                 <Tone as="h3" className="offer__name">
                   {o.name}
                 </Tone>
                 <Tone className="offer__price">
-                  {o.pre && <span className="offer__pre">{o.pre}</span>}
                   <strong className={o.pre ? '' : 'is-text'}>{o.price}</strong>
                 </Tone>
-                <Tone as="p" className="offer__meta">
-                  {o.meta}
+                <WhatsAppCTA label={o.cta} message={o.message} className="offer__cta" />
+                <Tone as="p" className="offer__desc">
+                  {o.description}
                 </Tone>
               </li>
             ))}

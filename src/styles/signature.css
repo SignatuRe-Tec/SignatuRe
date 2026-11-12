@@ -176,3 +176,17 @@
     animation: none;
   }
 }
+
+/* mobile: CTA em uma única linha, centralizado */
+@media (max-width: 640px) {
+  .signature__cta-link {
+    justify-content: center;
+    max-width: 100%;
+    font-size: clamp(0.75rem, 3vw, 0.9rem);
+    padding-inline: 1.25rem;
+    text-align: center;
+  }
+  .signature__cta-link .cta-bracket__t {
+    white-space: nowrap;
+  }
+}

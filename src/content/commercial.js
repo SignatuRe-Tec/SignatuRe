@@ -1,9 +1,43 @@
 /** Conteúdo comercial — Master §19–§39 (COMMERCIAL RULE). Não alterar valores. */
 export const offers = [
-  { name: 'Landing Page', pre: 'A partir de', price: 'R$ 3.500', meta: '10–15 dias úteis' },
-  { name: 'Site Institucional', pre: 'A partir de', price: 'R$ 5.500', meta: '20–30 dias úteis' },
-  { name: 'Modernização / Redesign', price: 'Sob avaliação e orçamento', meta: 'Prazo conforme proposta' },
-  { name: 'Projeto personalizado', price: 'Sob consulta', meta: 'Prazo conforme proposta' },
+  {
+    name: 'Landing Page',
+    description:
+      'Uma página exclusiva, criada para apresentar um produto, serviço ou ideia de forma clara e envolvente. Tudo em um único lugar, com design personalizado e caminhos que facilitam o contato com seu público.',
+    pre: 'A partir de',
+    price: 'R$ 3.500',
+    meta: '10–15 dias úteis',
+    cta: 'Quero uma Landing Page',
+    message: 'Olá! Conheci a SignatuRe pelo site e gostaria de conversar sobre a criação de uma Landing Page.',
+  },
+  {
+    name: 'Site Institucional',
+    description:
+      'Um site que apresenta sua empresa além do que ela oferece. Sua história, seus valores e seus diferenciais ganham espaço em uma presença digital organizada, profissional e capaz de transmitir confiança desde o primeiro contato.',
+    pre: 'A partir de',
+    price: 'R$ 5.500',
+    meta: '20–30 dias úteis',
+    cta: 'Quero um Site',
+    message: 'Olá! Conheci a SignatuRe pelo site e gostaria de conversar sobre a criação de um Site Institucional.',
+  },
+  {
+    name: 'Modernização / Redesign',
+    description:
+      'Seu site já existe, mas será que ainda representa o seu negócio? Repensamos sua aparência, organização e experiência de navegação para que sua presença digital acompanhe a evolução da sua marca.',
+    price: 'Sob avaliação e orçamento',
+    meta: 'Prazo conforme proposta',
+    cta: 'Quero Modernizar',
+    message: 'Olá! Conheci a SignatuRe pelo site e gostaria de conversar sobre a modernização do meu site.',
+  },
+  {
+    name: 'Projetos Personalizados',
+    description:
+      'De cardápios digitais e portfolios a páginas para eventos e projetos autorais. Transformamos ideias em experiências digitais feitas sob medida, com criatividade, identidade própria e atenção aos detalhes.',
+    price: 'Sob avaliação e orçamento',
+    meta: 'Prazo conforme proposta',
+    cta: 'Quero Personalizar',
+    message: 'Olá! Conheci a SignatuRe pelo site e gostaria de conversar sobre um Projeto Personalizado.',
+  },
 ];
 
 export const included = [

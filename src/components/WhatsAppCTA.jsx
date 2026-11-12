@@ -4,12 +4,12 @@ import { SHOW_PROVISIONAL_MARKERS } from '../config/site.js';
 import Tone from '../ambient/Tone.jsx';
 
 /** Ação comercial final: abre conversa no WhatsApp. URL/telefone: src/config/contact.js */
-export default function WhatsAppCTA({ label = 'Conte pra gente', className = '' }) {
+export default function WhatsAppCTA({ label = 'Conte pra gente', className = '', message }) {
   return (
     <Tone as="div" className={`wa ${className}`}>
       <a
         className="cta-bracket"
-        href={whatsappUrl()}
+        href={whatsappUrl(message)}
         target="_blank"
         rel="noopener noreferrer"
         onClick={() => track('whatsapp_cta_click', { label })}

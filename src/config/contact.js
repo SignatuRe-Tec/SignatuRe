@@ -10,8 +10,8 @@ export const contact = {
   domain: 'signature.tec.br',
 };
 
-export function whatsappUrl() {
-  const text = encodeURIComponent(contact.whatsappMessage);
+export function whatsappUrl(message = contact.whatsappMessage) {
+  const text = encodeURIComponent(message || contact.whatsappMessage);
   const n = contact.whatsappNumber.replace(/\D/g, '');
   return n ? `https://wa.me/${n}?text=${text}` : `https://wa.me/?text=${text}`;
 }
