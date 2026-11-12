@@ -17,9 +17,8 @@ export default function Hero() {
           {headline}
         </Tone>
         <Tone className="hero__cta intro-rise" style={{ '--d': '220ms' }}>
-          <Link to={cta.to} className="link-line">
+          <Link to={cta.to} className="link-line hero__cta-button">
             <span>{cta.label}</span>
-            <span className="link-line__rule" aria-hidden="true" />
           </Link>
           
         </Tone>

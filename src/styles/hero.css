@@ -54,3 +54,63 @@
     letter-spacing: 0.4em;
   }
 }
+
+/* CTA exclusivo da Hero */
+.hero__cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 0.9rem 1.8rem;
+
+  color: #f3efeb;
+  background: transparent;
+  border: 1px solid rgba(243, 239, 235, 0.65);
+  border-radius: 999px;
+  text-decoration: none;
+
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+
+  transition:
+    background 300ms ease,
+    color 300ms ease,
+    border-color 300ms ease;
+}
+
+.hero__cta-button:focus-visible {
+  outline: 2px solid #f3efeb;
+  outline-offset: 4px;
+}
+
+@media (hover: hover) {
+  .hero__cta-button:hover {
+    background: #f3efeb;
+    color: #14110f;
+    border-color: #f3efeb;
+  }
+}
+/* Respiração sutil do CTA da Hero */
+.hero__cta-button {
+  animation: cta-breathe 4s ease-in-out infinite;
+}
+
+@keyframes cta-breathe {
+  0%, 100% {
+    box-shadow:
+      0 4px 18px rgba(0, 0, 0, 0.2),
+      0 0 0 0 rgba(255, 255, 255, 0);
+  }
+
+  50% {
+    box-shadow:
+      0 4px 18px rgba(0, 0, 0, 0.2),
+      0 0 22px 5px rgba(255, 255, 255, 0.35);
+  }
+}
+
+/* Respeita quem prefere menos movimento */
+@media (prefers-reduced-motion: reduce) {
+  .hero__cta-button {
+    animation: none;
+  }
+}

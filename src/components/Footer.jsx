@@ -63,7 +63,7 @@ const socials = [
  */
 export default function Footer() {
   return (
-    <footer className="footer" data-ambient-return>
+    <footer id="contato" className="footer" data-ambient-return>
       <div className="footer__top">
         <Tone as="nav" aria-label="Rodapé" className="footer__nav">
           <Link to="/#o-que-fazemos">O que fazemos</Link>

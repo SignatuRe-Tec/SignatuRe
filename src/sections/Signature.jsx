@@ -98,14 +98,12 @@ export default function Signature() {
           {closing[1]}
         </Tone>
         <Tone className="signature__cta">
-          <a href="https://wa.me/5547984653443" target="_blank"rel="noopener noreferrer" className="cta-bracket">
-            <span className="cta-bracket__b" aria-hidden="true">
-              [
-            </span>
-            <span className="cta-bracket__t">{cta}</span>
-            <span className="cta-bracket__b cta-bracket__b--r" aria-hidden="true">
-              ]
-            </span>
+          <a
+          href="https://wa.me/5547984653443"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="cta-bracket signature__cta-link">
+          <span className="cta-bracket__t">{cta}</span>
           </a>
         </Tone>
       </div>

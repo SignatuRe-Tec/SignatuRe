@@ -14,13 +14,7 @@ export default function WhatsAppCTA({ label = 'Conte pra gente', className = '' 
         rel="noopener noreferrer"
         onClick={() => track('whatsapp_cta_click', { label })}
       >
-        <span className="cta-bracket__b" aria-hidden="true">
-          [
-        </span>
         <span className="cta-bracket__t">{label}</span>
-        <span className="cta-bracket__b cta-bracket__b--r" aria-hidden="true">
-          ]
-        </span>
         <span className="sr-only"> (abre o WhatsApp em nova aba)</span>
       </a>
       {SHOW_PROVISIONAL_MARKERS && !whatsappConfigured() && (

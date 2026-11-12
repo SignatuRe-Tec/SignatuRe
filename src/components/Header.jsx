@@ -110,6 +110,7 @@ export default function Header({ variant = 'landing' }) {
             <Link to="/#o-que-fazemos">O que fazemos</Link>
             <Link to="/#assinatura">Nosso trabalho</Link>
             <Link to="/contratar">Escolha sua presença</Link>
+            <Link to="/#contato">Contato</Link>
           </>
         ) : (
           <Link to="/">Início</Link>

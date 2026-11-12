@@ -219,3 +219,52 @@ main section[class^='c-']:not(.c-stage) > .kicker {
 .c-final .cta-bracket {
   font-size: clamp(1.4rem, 1rem + 3.2vw, 3.6rem);
 }
+
+/* CTA final da página comercial */
+.c-final .cta-bracket {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: clamp(1rem, 0.85rem + 1vw, 1.5rem);
+  min-height: 48px;
+  padding: 1rem 1.8rem;
+
+  border: 1px solid rgba(123, 29, 42, 0.7);
+  border-radius: 999px;
+  background: transparent;
+
+  animation: commercial-cta-breathe 4s ease-in-out infinite;
+
+  transition: background 300ms ease, color 300ms ease;
+}
+
+@keyframes commercial-cta-breathe {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(123, 29, 42, 0);
+  }
+
+  50% {
+    box-shadow: 0 0 22px 5px rgba(123, 29, 42, 0.3);
+  }
+}
+
+@media (hover: hover) {
+  .c-final .cta-bracket:hover {
+    background: rgba(123, 29, 42, 0.06);
+  }
+}
+
+.c-final .cta-bracket:focus-visible {
+  outline: 2px solid #7b1d2a;
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .c-final .cta-bracket {
+    animation: none;
+  }
+}
+.c-final__cta {
+  transform: translateY(-50px);
+}
