@@ -1,0 +1,75 @@
+﻿/* ALÉM DA SIGNATURE — chamada para o portfolio pessoal */
+.beyond {
+  margin-top: clamp(8rem, 20vw, 18rem);
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: 0;
+}
+.beyond > * {
+  grid-column: 1 / -1;
+}
+.beyond__title {
+  max-width: 12em;
+}
+.beyond__body {
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+  display: grid;
+  gap: 2.5rem;
+  justify-items: start;
+}
+.beyond__text {
+  max-width: 38ch;
+  font-size: var(--fs-small);
+  line-height: 1.7;
+  color: var(--fg-muted);
+}
+.beyond__link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  min-height: 48px;
+  padding-block: 0.9rem;
+  text-decoration: none;
+  font-size: var(--fs-small);
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+.beyond__rule {
+  position: absolute;
+  left: 0;
+  bottom: 0.55rem;
+  width: 100%;
+  height: 1px;
+  background: var(--accent);
+  transform-origin: left;
+  transform: scaleX(0.35);
+  transition: transform var(--dur-base) var(--ease-out);
+}
+@media (--hover) {
+  .beyond__link:hover .beyond__rule {
+    transform: scaleX(1);
+  }
+}
+.beyond__link:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+.beyond__link:focus-visible .beyond__rule {
+  transform: scaleX(1);
+}
+
+@media (--md) {
+  .beyond__body {
+    grid-template-columns: minmax(0, 38ch) auto;
+    align-items: end;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+}
+@media (--reduce) {
+  .beyond__rule {
+    transition: none;
+  }
+}
+

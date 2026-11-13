@@ -3,6 +3,7 @@ import Tone from '../ambient/Tone.jsx';
 import InteractiveWordmark from '../components/InteractiveWordmark.jsx';
 import { copy } from '../content/copy.js';
 import { cases } from '../content/cases.js';
+import Beyond from './Beyond.jsx';
 
 /**
  * Case Study — recebe os assets reais do Case 01 via src/content/cases.js.
@@ -90,6 +91,8 @@ export default function Signature() {
       {cases.map((c) => (
         <CaseStudy key={c.id} data={c} />
       ))}
+
+      <Beyond />
 
       <div className="signature__close">
         <Tone as="p" reveal className="signature__closing">
